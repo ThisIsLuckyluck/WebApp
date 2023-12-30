@@ -1,9 +1,14 @@
-import Image from 'next/image'
+import Header from "@/components/layout/Header";
+import Hero from "@/components/layout/Hero";
+import HomeMenu from "@/components/layout/HomeMenu";
+
 
 export default function Home() {
   return (
-    <main>
-      HelloWorld
-    </main>
+    <>
+        <Header />
+        <div className='py-20'><Hero /></div>
+        <HomeMenu />
+    </>
   )
 }
