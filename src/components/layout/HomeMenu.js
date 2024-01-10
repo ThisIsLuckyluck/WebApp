@@ -29,7 +29,7 @@ export default function HomeMenu() {
                                 <p className="text-4xl font-black text-white">{item.price}$</p>
                                 {/* <Image src={`/${item.images.small}`} alt={item.product_name} />*/}
                                 <Image src="/sushi.png" alt="sushi" width={300} height={200} className="mx-auto"/>
-                                <div className="text-lg font-bold text-center mb-2">{item.product_name}</div>
+                                <div className="text-white text-2xl font-bold text-center mb-2">{item.product_name}</div>
                                 <div className="text-gray-400 py-3">{item.description}</div>
                                 <button className="bg-primary rounded-lg p-2 text-white px-5">ajouter au panier</button>
                             </div>
