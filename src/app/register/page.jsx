@@ -4,6 +4,7 @@ import axios from "axios";
 import {URLApi} from "@/conf";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useRouter} from "next/navigation";
 export default function RegisterPage() {
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -11,6 +12,8 @@ export default function RegisterPage() {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [telephone, setTelephone] = useState('');
+
+    const router = useRouter()
 
     function isNumber(value) {
         return /^\d+$/.test(value);
@@ -60,6 +63,7 @@ export default function RegisterPage() {
             toast.success(response.data.message, {
                 theme: "dark"
             });
+            router.push('/')
         }) .catch((error) => {
             toast.error(error.response.data.message, {
                 theme: "dark"
