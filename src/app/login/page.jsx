@@ -51,7 +51,7 @@ export default function LoginPage () {
     async function onSubmit(data) {
 
         try {
-            const response = await axios.post(`${URLApi}/login`, {
+            const response = await axios.post(`${config.URLApi}/login`, {
                 username: data.username,
                 password: data.password
             });
