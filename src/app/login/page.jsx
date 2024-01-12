@@ -18,7 +18,6 @@ import { Separator } from "@/components/ui/separator"
 import { Input } from "@/components/ui/input";
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
-import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import config from "@/conf";
