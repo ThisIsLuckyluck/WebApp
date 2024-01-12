@@ -21,7 +21,8 @@ import {toast, ToastContainer} from "react-toastify";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-import {URLApi} from "@/conf";
+import config from "@/conf";
+import { useAuth } from '@/AuthContext';
 
 const FormSchema = z.object({
 
@@ -34,6 +35,8 @@ const FormSchema = z.object({
 });
 
 export default function LoginPage () {
+
+    const { login } = useAuth();
 
     const router = useRouter()
 
@@ -54,7 +57,10 @@ export default function LoginPage () {
             });
 
             if (response.status === 200) {
-                router.push('/')
+                const { token } = response.data;
+                login();
+                localStorage.setItem("authToken", token);
+                router.push('/');
                 /*TODO: get the id and hash it etc etc*/
             }
         } catch (error) {

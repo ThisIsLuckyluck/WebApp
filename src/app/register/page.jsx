@@ -1,7 +1,7 @@
 "use client"
 import {useState} from "react";
 import axios from "axios";
-import {URLApi} from "@/conf";
+import config from "@/conf";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useRouter} from "next/navigation";
@@ -52,7 +52,7 @@ export default function RegisterPage() {
             }
         }
 
-        axios.post(`${URLApi}/user/create`, {
+        axios.post(`${config.URLApi}/user/create`, {
             last_name: lastName,
             first_name: firstName,
             username: username,
