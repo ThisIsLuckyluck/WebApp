@@ -5,10 +5,14 @@ import axios from 'axios';
 import {useEffect, useState} from "react";
 import config from "@/conf";
 import {toast} from "react-toastify";
+import {useAuth} from "@/AuthContext";
+
 
 export default function HomeMenu() {
     const [bestSellers, setBestSellers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const { isAuthenticated, updateCartCount } = useAuth();
 
     let toastMessage = 'Error fetching data'
 
@@ -25,6 +29,24 @@ export default function HomeMenu() {
         };
         fetchData();
     }, []);
+
+    function onClickCart(key) {
+        if (isAuthenticated) {
+            let keysString = localStorage.getItem("Cart") || '';
+
+            let keys = keysString ? keysString.split(',') : [];
+
+            keys.push(key);
+
+            let updatedKeysString = keys.join(',');
+
+            localStorage.setItem("Cart", updatedKeysString);
+            updateCartCount(localStorage.getItem('Cart'));
+        }
+    }
+
+
+
 
     return (
         <section className="">
@@ -58,7 +80,7 @@ export default function HomeMenu() {
                                     <div
                                         className="text-white text-2xl font-bold text-center mb-2">{item.product_name}</div>
                                     <div className="text-gray-400 py-3">{item.description}</div>
-                                    <button className="bg-primary rounded-lg p-2 text-white px-5">ajouter au panier
+                                    <button className="bg-primary rounded-lg p-2 text-white px-5" onClick={() => onClickCart(item.id_product)}>ajouter au panier
                                     </button>
                                 </div>
                             ))}
