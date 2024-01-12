@@ -3,7 +3,7 @@ import SectionHeaders from "@/components/layout/SectionHeaders";
 import Image from "next/image";
 import axios from 'axios';
 import {useEffect, useState} from "react";
-import {URLApi} from "@/conf";
+import config from "@/conf";
 import {toast} from "react-toastify";
 
 export default function HomeMenu() {
@@ -15,7 +15,7 @@ export default function HomeMenu() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${URLApi}/product`);
+                const response = await axios.get(`${config.URLApi}/product`);
                 setBestSellers(response.data.slice(-3));
             } catch (error) {
                 toast.error(toastMessage);
