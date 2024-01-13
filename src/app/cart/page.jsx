@@ -162,7 +162,7 @@ export default function CartPage() {
             console.log(totalCount);
         }
 
-        return totalCount;
+        return parseFloat(totalCount.toFixed(2));
     }
 
     let TotalResult = TotalCount()
