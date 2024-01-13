@@ -11,8 +11,39 @@ import {useAuth} from "@/AuthContext";
 
 export default function CartPage() {
     const [response, setResponse] = useState(null);
+    const [arrayIdProduct, setArrayIdProduct] = useState([])
 
     const { updateCartCount } = useAuth();
+
+    const createOrder = async (idProductList) => {
+        let array = idProductList.toString().split(',')
+        try {
+            const token = localStorage.getItem("authToken");
+
+            const response = await axios.post(
+                `${config.URLApi}/order/create`,
+                {
+                    order_content: array,
+                },
+                {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (response.status === 201) {
+                console.log("Order and Order Content created successfully.");
+            } else {
+                console.log("Failed to create Order or Order Content.");
+            }
+        } catch (error) {
+            console.error("Error:", error.message);
+            console.log("Failed to create Order or Order Content.");
+        }
+    };
 
 
     const deleteItem = (productId) => {
@@ -27,6 +58,8 @@ export default function CartPage() {
         const updatedCartArray = cartArray.filter(id => id !== productId.toString());
 
         const updatedCart = updatedCartArray.join(',');
+
+        setArrayIdProduct(updatedCart);
 
         localStorage.setItem('Cart', updatedCart);
         updateCartCount(localStorage.getItem('Cart'));
@@ -69,15 +102,21 @@ export default function CartPage() {
             // If mode is 'remove' and the productId is found in the 'Cart' array, remove it
             if (mode === 'remove' && indexOfProductId !== -1) {
                 cartArray.splice(indexOfProductId, 1);
+                console.log("cartArray", cartArray);
+                setArrayIdProduct(cartArray);
             }
 
             // If mode is 'add' and the productId is not found in the 'Cart' array, add it
             if (mode !== 'remove') {
                 cartArray.push(productId.toString());
+                console.log("cartArray", cartArray);
+                setArrayIdProduct(cartArray);
             }
 
             // Convert the updated 'Cart' array back to a comma-separated string
             const updatedCart = cartArray.join(',');
+
+            setArrayIdProduct(updatedCart);
 
             // Save the updated 'Cart' string back to local storage
             localStorage.setItem('Cart', updatedCart);
@@ -99,6 +138,8 @@ export default function CartPage() {
 
                 // Split the data into an array using a delimiter (assuming it's a comma-separated string)
                 const cartIds = data ? data.split(",") : [];
+
+                setArrayIdProduct(cartIds);
 
                 const idCountMap = new Map();
 
@@ -221,7 +262,7 @@ export default function CartPage() {
                         <p className={"pr-5"}>Total</p>
                         <p className={"text-white font-bold"}>{TotalResult}€</p>
                     </div>
-                    <button className={"w-full rounded-lg bg-primary p-2 py-2 my-5 font-bold"}>Passez votre commande</button>
+                    <button className={"w-full rounded-lg bg-primary p-2 py-2 my-5 font-bold"} onClick={() => createOrder(arrayIdProduct)}>Passez votre commande</button>
                 </div>
             </section>
         </div>
