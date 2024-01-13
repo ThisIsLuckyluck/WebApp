@@ -66,8 +66,9 @@ export default function Header() {
                             <DropdownMenuContent>
                                 <DropdownMenuLabel className={"text-center"}>{userInfo}</DropdownMenuLabel>
                                 <DropdownMenuSeparator/>
-                                <DropdownMenuItem>Profile</DropdownMenuItem>
-                                <DropdownMenuItem>Panier</DropdownMenuItem>
+                                <DropdownMenuItem><Link href={"/account"}>Profil</Link></DropdownMenuItem>
+                                <DropdownMenuItem><Link href={"/cart"}>Panier</Link></DropdownMenuItem>
+                                <DropdownMenuItem><Link href={"/historic"}>Historique</Link></DropdownMenuItem>
                                 <button onClick={onLogout}
                                         className="bg-red-500 rounded-md text-white px-3 py-1 justify-center flex mx-auto my-2 text-sm">Logout
                                 </button>
