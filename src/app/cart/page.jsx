@@ -19,7 +19,7 @@ export default function CartPage() {
                 console.log("HEY", data);
 
                 // Split the data into an array using a delimiter (assuming it's a comma-separated string)
-                const cartIds = data ? data.split(',') : [];
+                const cartIds = data ? data.split(",") : [];
 
                 const idCountMap = new Map();
 
@@ -44,7 +44,23 @@ export default function CartPage() {
 
                 if (response.status === 200) {
                     console.log(response.data);
-                    setResponse(response.data);
+
+                    // Update the quantity property for each item in the response array
+                    const responseWithUpdatedQuantity = response.data.map((item) => {
+                        console.log("ITEM", item.id_product);
+                        console.log(idCountMap);
+                        const quantityFromMap = idCountMap.get(`${item.id_product}`);
+                        console.log("HERE",quantityFromMap);
+                        return {
+                            ...item,
+                            quantity: quantityFromMap,
+                        };
+                    });
+
+                    console.log(responseWithUpdatedQuantity);
+
+                    setResponse(responseWithUpdatedQuantity);
+
                 }
             } catch (error) {
                 console.error(error);
@@ -59,7 +75,7 @@ export default function CartPage() {
             <section className={"bg-gray-900 max-h-[450px] max-w-[550px] w-full rounded"}>
                 <div className={"max-w-lg mx-auto my-4"}>
                 <h1 className={"font-bold text-white my-2 text-lg"}>Votre panier</h1>
-                <ScrollArea className="h-[400px] max-w-[550px] rounded">
+                <ScrollArea className="h-[390px] max-w-[550px] rounded ">
                     {response && response.map((item) => (
                         <div key={item.id_product}>
                         <div className={"flex py-2"}>
@@ -75,7 +91,7 @@ export default function CartPage() {
                                 <div className="mt-10 flex justify-between">
                                     <div className={"flex max-h-full text-white font-thin items-center"}>
                                         <button className={"text-2xl"}>-</button>
-                                        <p className={"mx-2 px-1 text-black bg-amber-50 rounded"}>20</p>
+                                        <p className={"mx-2 px-1 text-black bg-amber-50 rounded"}>{item.quantity}</p>
                                         <button className={"text-2xl"}>+</button>
                                     </div>
                                     <button className="font-bold text-red-600">Retirer</button>
@@ -93,13 +109,15 @@ export default function CartPage() {
                     <h1 className={"text-white text-2xl font-bold"}>Récapitulatif</h1>
                     <Separator className={"max-w-lg my-2"}/>
                     <ScrollArea className="h-[200px] max-w-[550px] rounded">
-                        <div className={"flex justify-between text-white"}>
-                            <div className={"flex"}>
-                                <p className={"pr-5"}>name, type</p>
-                                <p className={"text-primary"}>x10</p>
+                        {response && response.map((item) => (
+                            <div key={item.id_product} className={"flex justify-between text-white pb-5"}>
+                                <div className={"flex"}>
+                                    <p className={"pr-5"}>{item.product_name}, {item.type_product}</p>
+                                    <p className={"text-primary"}>x{item.quantity}</p>
+                                </div>
+                                <p>{item.price}€</p>
                             </div>
-                            <p>€</p>
-                        </div>
+                        ))}
                     </ScrollArea>
                     <Separator className={"max-w-lg my-2"}/>
                     <div className={"flex justify-between"}>
