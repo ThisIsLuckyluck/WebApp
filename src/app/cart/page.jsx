@@ -32,6 +32,63 @@ export default function CartPage() {
         updateCartCount(localStorage.getItem('Cart'));
     };
 
+    const updateItem = (productId, mode) => {
+        // Get the current response state
+        const currentResponse = [...response];
+
+        // Find the first occurrence of the product with the specified productId in the response array
+        const productIndex = currentResponse.findIndex(item => item.id_product === productId);
+
+        // If the product is found in the response array
+        if (productIndex !== -1) {
+            // Clone the product object to avoid directly modifying the state
+            const updatedProduct = { ...currentResponse[productIndex] };
+
+            // Update the quantity based on the mode (either 'remove' or 'add')
+            if (mode === 'remove') {
+                updatedProduct.quantity = Math.max(0, updatedProduct.quantity - 1);
+            } else {
+                updatedProduct.quantity += 1;
+            }
+
+            // Update the response state with the modified product
+            currentResponse[productIndex] = updatedProduct;
+
+            // Set the updated response state
+            setResponse(currentResponse);
+
+            // Get the current cart as a comma-separated string from local storage
+            const cart = localStorage.getItem('Cart') || '';
+
+            // Convert the cart string into an array of strings
+            const cartArray = cart.split(',');
+
+            // Find the first occurrence of the productId in the 'Cart' array
+            const indexOfProductId = cartArray.indexOf(productId.toString());
+
+            // If mode is 'remove' and the productId is found in the 'Cart' array, remove it
+            if (mode === 'remove' && indexOfProductId !== -1) {
+                cartArray.splice(indexOfProductId, 1);
+            }
+
+            // If mode is 'add' and the productId is not found in the 'Cart' array, add it
+            if (mode !== 'remove') {
+                cartArray.push(productId.toString());
+            }
+
+            // Convert the updated 'Cart' array back to a comma-separated string
+            const updatedCart = cartArray.join(',');
+
+            // Save the updated 'Cart' string back to local storage
+            localStorage.setItem('Cart', updatedCart);
+
+            // Update the cart count
+            updateCartCount(updatedCart);
+        }
+    };
+
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -130,9 +187,9 @@ export default function CartPage() {
                                 </div>
                                 <div className="mt-10 flex justify-between">
                                     <div className={"flex max-h-full text-white font-thin items-center"}>
-                                        <button className={"text-2xl"}>-</button>
+                                        <button className={"text-2xl"} onClick={() => updateItem(item.id_product, "remove")}>-</button>
                                         <p className={"mx-2 px-1 text-black bg-amber-50 rounded"}>{item.quantity}</p>
-                                        <button className={"text-2xl"}>+</button>
+                                        <button className={"text-2xl"} onClick={() => updateItem(item.id_product, "add")}>+</button>
                                     </div>
                                     <button className="font-bold text-red-600" onClick={() => deleteItem(item.id_product)}>Retirer</button>
                                 </div>
