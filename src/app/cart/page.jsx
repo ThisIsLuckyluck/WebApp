@@ -7,9 +7,13 @@ import config from "@/conf";
 import Image from "next/image";
 
 import { Separator } from "@/components/ui/separator"
+import {useAuth} from "@/AuthContext";
 
 export default function CartPage() {
     const [response, setResponse] = useState(null);
+
+    const { updateCartCount } = useAuth();
+
 
     const deleteItem = (productId) => {
         const updatedResponse = response.filter(item => item.id_product !== productId);
@@ -25,6 +29,7 @@ export default function CartPage() {
         const updatedCart = updatedCartArray.join(',');
 
         localStorage.setItem('Cart', updatedCart);
+        updateCartCount(localStorage.getItem('Cart'));
     };
 
 
