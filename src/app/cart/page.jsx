@@ -11,6 +11,23 @@ import { Separator } from "@/components/ui/separator"
 export default function CartPage() {
     const [response, setResponse] = useState(null);
 
+    const deleteItem = (productId) => {
+        const updatedResponse = response.filter(item => item.id_product !== productId);
+
+        setResponse(updatedResponse);
+
+        const cart = localStorage.getItem('Cart') || '';
+
+        const cartArray = cart.split(',');
+
+        const updatedCartArray = cartArray.filter(id => id !== productId.toString());
+
+        const updatedCart = updatedCartArray.join(',');
+
+        localStorage.setItem('Cart', updatedCart);
+    };
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -112,7 +129,7 @@ export default function CartPage() {
                                         <p className={"mx-2 px-1 text-black bg-amber-50 rounded"}>{item.quantity}</p>
                                         <button className={"text-2xl"}>+</button>
                                     </div>
-                                    <button className="font-bold text-red-600">Retirer</button>
+                                    <button className="font-bold text-red-600" onClick={() => deleteItem(item.id_product)}>Retirer</button>
                                 </div>
                             </div>
                         </div>
