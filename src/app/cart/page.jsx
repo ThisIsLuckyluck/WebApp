@@ -70,6 +70,24 @@ export default function CartPage() {
         fetchData();
     }, []);
 
+    function TotalCount() {
+        if (!response) {
+            return 0;
+        }
+
+        let totalCount = 0;
+
+        for (let i = 0; i < response.length; i++) {
+            console.log(i);
+            totalCount += response[i].price * response[i].quantity;
+            console.log(totalCount);
+        }
+
+        return totalCount;
+    }
+
+    let TotalResult = TotalCount()
+
     return (
         <div className={"grid grid-cols-1 sm:grid-cols-2 gap-4 items-center min-h-[650px]"}>
             <section className={"bg-gray-900 max-h-[450px] max-w-[550px] w-full rounded"}>
@@ -122,7 +140,7 @@ export default function CartPage() {
                     <Separator className={"max-w-lg my-2"}/>
                     <div className={"flex justify-between"}>
                         <p className={"pr-5"}>Total</p>
-                        <p className={"text-white font-bold"}>€</p>
+                        <p className={"text-white font-bold"}>{TotalResult}€</p>
                     </div>
                     <button className={"w-full rounded-lg bg-primary p-2 py-2 my-5 font-bold"}>Passez votre commande</button>
                 </div>
