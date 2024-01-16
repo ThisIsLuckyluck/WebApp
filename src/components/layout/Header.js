@@ -48,10 +48,10 @@ export default function Header() {
                     <span className="text-white"> SUSHI</span>
                 </Link>
                 <nav className="flex gap-8 font-semibold items-center text-white">
-                    <Link href={''}>Home</Link>
+                    <Link href={'/'}>Home</Link>
                     <Navbar />
-                    <Link href={''}>Notre histoire</Link>
-                    <Link href={''}>Contact</Link>
+                    <Link href={'/story'}>Notre histoire</Link>
+                    <Link href={'/contact'}>Contact</Link>
                 </nav>
                 {isAuthenticated ? (
                     <div className={"flex"}>
