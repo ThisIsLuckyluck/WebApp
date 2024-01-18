@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
         <body className={roboto.className}>
         <AuthProvider>
-                <main className="bg-blue-950">
+                <main className="bg-gray-800">
                     <div className="max-w-6xl mx-auto p-4 relative">
                         <Header />
                         {children}
