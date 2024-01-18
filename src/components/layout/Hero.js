@@ -9,7 +9,7 @@ export default function Hero() {
                     Custom ton <span className="text-primary">Sushi </span>
                 </h1>
                 <p className="my-6 text-gray-300 text-base">
-                    Le sushi is the missing piece that makes every day complete, a simple yet delicious joy in life
+                    Le sushi est la pièce manquante qui rend chaque jour complet, une joie simple mais délicieuse dans la vie.
                 </p>
                 <div className="flex gap-4 text-sm">
                     <button className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-md">
