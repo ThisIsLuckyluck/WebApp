@@ -7,8 +7,8 @@ export default function Footer() {
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
                             <a href="http://github.com/FAST-SUSHI-NEXTECH" className="flex items-center">
-                                <Image width={"50"} height={"1"} src={""} className="h-8 me-3"
-                                     alt="FlowBite Logo"/>
+                                <Image width={"50"} height={"80"} src={"/logo_blanc.png"} className="h-10 me-3"
+                                     alt="Fast sushi Logo"/>
                                 <span
                                     className="self-center text-2xl font-semibold whitespace-nowrap text-white">Fast sushi</span>
                             </a>
