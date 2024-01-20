@@ -10,6 +10,7 @@ import config from "@/conf";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,} from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { CartIcon } from "@/components/layout/Cart";
+import { Sling as Hamburger } from 'hamburger-react'
 
 export default function Header() {
     const { isAuthenticated, logout } = useAuth();
@@ -44,10 +45,10 @@ export default function Header() {
             <header className="flex items-center justify-between py-4">
                 <Link className="text-primary font-bold text-2xl flex items-center" href={'/'}>
                     <Image src={"/logo_blanc.png"} alt={""} width={"50"} height={"50"}/>
-                    <p className={"hidden md:flex"}>FAST</p>
-                    <span className="text-white hidden md:flex"> SUSHI</span>
+                    <p className={""}>FAST</p>
+                    <span className="text-white"> SUSHI</span>
                 </Link>
-                <nav className="flex gap-8 font-semibold items-center text-white">
+                <nav className="gap-8 font-semibold items-center text-white hidden md:flex">
                     <Link href={'/'}>Home</Link>
                     <Navbar />
                     <Link href={'/story'}>Notre histoire</Link>
