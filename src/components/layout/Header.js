@@ -54,6 +54,20 @@ export default function Header() {
                     <Link href={'/story'}>Notre histoire</Link>
                     <Link href={'/contact'}>Contact</Link>
                 </nav>
+                <div className={"flex items-center"}>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger className={"hover:border-0 border-0 focus:outline-none flex md:hidden px-2"}>
+                            <Hamburger size={30} color="#FFFFFF"/>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className={"md:hidden"}>
+                            <DropdownMenuLabel className={"text-center"}>Menu</DropdownMenuLabel>
+                            <DropdownMenuSeparator/>
+                            <DropdownMenuItem><Link href={"/home"}>Home</Link></DropdownMenuItem>
+                            <DropdownMenuItem><Link href={"/starter"}>Nos produits</Link></DropdownMenuItem>
+                            <DropdownMenuItem><Link href={"/story"}>Notre histoire</Link></DropdownMenuItem>
+                            <DropdownMenuItem><Link href={"/contact"}>Contact</Link></DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 {isAuthenticated ? (
                     <div className={"flex"}>
                         <DropdownMenu>
@@ -79,6 +93,7 @@ export default function Header() {
                 ) : (
                     <Link href={'/login'} className="bg-gray-700 rounded-md text-white px-4 py-2">Se connecter</Link>
                 )}
+                </div>
             </header>
         </>
     );
