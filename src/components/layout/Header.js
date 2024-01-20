@@ -79,7 +79,7 @@ export default function Header() {
                             </DropdownMenuTrigger>
                             <CartIcon />
                             <DropdownMenuContent>
-                                <DropdownMenuLabel className={"text-center"}>{userInfo}</DropdownMenuLabel>
+                                <DropdownMenuLabel className={"text-center"}>Hello, {userInfo} !</DropdownMenuLabel>
                                 <DropdownMenuSeparator/>
                                 <DropdownMenuItem><Link href={"/account"}>Profil</Link></DropdownMenuItem>
                                 <DropdownMenuItem><Link href={"/cart"}>Panier</Link></DropdownMenuItem>
