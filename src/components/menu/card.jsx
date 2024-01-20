@@ -2,6 +2,25 @@
 import Image from "next/image";
 
 export function CardUi() {
+    const [productData, setProductData] = useState(null);
+
+    useEffect(() => {
+        const fetchAllProduct = async () => {
+            try {
+                const response = await axios.get(`${config.URLApi}/product`);
+
+                if (response.status === 200) {
+                    console.log(response.data);
+                    setProductData(response.data);  // Set the fetched data in state
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchAllProduct();  // Invoke the fetchAllProduct function
+    }, []);  // Make sure to pass an empty dependency array if fetchAllProduct doesn't depend on any props or state
+
     return (
         <>
         <section className={"bg-gray-300 rounded-lg w-full max-w-52 bg-opacity-30"}>
