@@ -4,7 +4,14 @@ import axios from "axios";
 import config from "@/conf";
 import { useEffect, useState } from "react";
 
-export function CardUi() {
+import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import {useAuth} from "@/AuthContext";
+
+export function CardUi({ productType }) {
     const [productData, setProductData] = useState(null);
 
     /*WE NEED TO HANDLE LOADING ISLOADING STATE AND USE SKELETON COMPONEnT FROM LIB SHADCN*/
@@ -35,15 +42,15 @@ export function CardUi() {
 
                 if (response.status === 200) {
                     console.log(response.data);
-                    setProductData(response.data);  // Set the fetched data in state
+                    setProductData(response.data);
                 }
             } catch (error) {
                 console.error(error);
             }
         };
 
-        fetchAllProduct();  // Invoke the fetchAllProduct function
-    }, []);  // Make sure to pass an empty dependency array if fetchAllProduct doesn't depend on any props or state
+        fetchAllProduct();
+    }, []);
 
     return (
         <>
@@ -54,10 +61,15 @@ export function CardUi() {
                             <div>
                                 <p className={"text-3xl text-center text-white font-bold"}>{item.price}$</p>
                                 <Image src={"/entree.jpg"} alt={"img"} width={1000} height={1000} className={"py-2"} />
-                                <div className={"flex items-center justify-center w-full overflow-hidden"}>
-                                    <h1 className={"text-center font-bold text-white text-sm px-2"}>{item.product_name}</h1>
-                                    <p className={"italic text-gray-300 text-xs"}>{item.type_product}</p>
-                                </div>
+                                    <h1 className={"text-center font-bold text-white text-2xl px-2 w-full sm:text-lg md:text-sm lg:text-xs"}>{item.product_name}</h1>
+                                    <HoverCard>
+                                        <HoverCardTrigger className={"cursor-zoom-in m-0 p-0"}>
+                                            <p className={"w-full mx-auto bg-gray-800 text-white text-center max-w-16 my-2 rounded text-sm"}>+ d'info</p>
+                                        </HoverCardTrigger>
+                                        <HoverCardContent className={"bg-gray-800 text-white border-0"}>
+                                            {item.description}
+                                        </HoverCardContent>
+                                    </HoverCard>
                                 <div>
                                     <p className={"py-3 text-gray-200 text-sm italic"}>{item.description}</p>
                                     <button className={"bg-primary p-2 rounded text-sm font-bold text-white mx-auto w-full hover:bg-red-600"}>ajouter au panier</button>
