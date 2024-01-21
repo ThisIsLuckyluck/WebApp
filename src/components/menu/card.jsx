@@ -54,9 +54,9 @@ export function CardUi({ productType }) {
 
     return (
         <>
-            <div className={"grid md:grid-cols-5 gap-2"}>
-                {productData && productData.map((item) => item.type_product === "appetizer" && (
-                    <section key={item.id_product} className={"min-w-52 bg-gray-300 rounded-lg w-full max-w-2xl bg-opacity-30"}>
+            <div className={"grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-2"}>
+                {productData && productData.map((item) => item.type_product === productType && (
+                    <section key={item.id_product} className={"min-w-52 bg-gray-300 rounded-lg w-full max-w-3xl bg-opacity-30"}>
                         <div className={"p-4 px-6 w-full"}>
                             <div>
                                 <p className={"text-3xl text-center text-white font-bold"}>{item.price}$</p>
@@ -71,8 +71,7 @@ export function CardUi({ productType }) {
                                         </HoverCardContent>
                                     </HoverCard>
                                 <div>
-                                    <p className={"py-3 text-gray-200 text-sm italic"}>{item.description}</p>
-                                    <button className={"bg-primary p-2 rounded text-sm font-bold text-white mx-auto w-full hover:bg-red-600"}>ajouter au panier</button>
+                                    <button className={"bg-primary p-2 rounded text-sm font-bold text-white mx-auto w-full hover:bg-red-600"} onClick={() => onClickCartforCard(item.id_product)}>ajouter au panier</button>
                                 </div>
                             </div>
                         </div>
