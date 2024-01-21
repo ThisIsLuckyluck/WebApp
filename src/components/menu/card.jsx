@@ -7,6 +7,27 @@ import { useEffect, useState } from "react";
 export function CardUi() {
     const [productData, setProductData] = useState(null);
 
+    /*WE NEED TO HANDLE LOADING ISLOADING STATE AND USE SKELETON COMPONEnT FROM LIB SHADCN*/
+
+    const { isAuthenticated, updateCartCount } = useAuth();
+
+
+    function onClickCartforCard(key) {
+        if (isAuthenticated) {
+            let keysString = localStorage.getItem("Cart") || '';
+
+            let keys = keysString ? keysString.split(',') : [];
+
+            keys.push(key);
+
+            let updatedKeysString = keys.join(',');
+
+            localStorage.setItem("Cart", updatedKeysString);
+            updateCartCount(localStorage.getItem('Cart'));
+        }
+    }
+
+
     useEffect(() => {
         const fetchAllProduct = async () => {
             try {
