@@ -9,7 +9,8 @@ import {
     NavigationMenuTrigger,
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-import Image from "next/image";
+
+import {navbarList} from "@/components/layout/navbarList";
 
 
 export default function Navbar() {
@@ -18,37 +19,20 @@ export default function Navbar() {
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger className="bg-primary">Nos produits</NavigationMenuTrigger>
-                    <NavigationMenuContent className="grid w-[200px] gap-3 p-4 md:w-[600px] md:grid-cols-3 lg:w-[800px]">
-                        <NavigationMenuLink>
-                            <Image src={"/entree.jpg"} alt={""} width={"2000"} height={"2000"} className="w-full rounded"/>
-                            <h1 className="absolute top-5 left-5 text-white">Nos entrées</h1>
-                            <p className="text-gray-400 font-thin absolute bottom-0 left-5">Trouver votre meilleur starter</p>
+                    <NavigationMenuContent className="min-w-[300px] h-fit">
+                        {navbarList.map((item, index) => (
+                            <NavigationMenuLink
+                                key={index}
+                                href={item.href}
+                                style={{ backgroundImage: `url(${item.path})` }}
+                                className={`bg-cover border-t-0 bg-opacity-50 grid gap-3 p-4 w-[300px] md:grid-cols-2 h-[100px]`}
+                            >
+                                <div className={"w-full min-w-96"}>
+                                    <h1 className="text-white text-2xl hover:text-primary">{item.title}</h1>
+                                    <p className="text-gray-200 font-thin text-md">{item.description}</p>
+                                </div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink>
-                            <Image src={"/entree.jpg"} alt={""} width={"2000"} height={"2000"} className="w-full rounded"/>
-                            <h1 className="absolute top-5 left-5 text-white">Nos entrées</h1>
-                            <p className="text-gray-400 font-thin absolute top-20 left-5">Trouver votre meilleur starter</p>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink>
-                            <Image src={"/entree.jpg"} alt={""} width={"2000"} height={"2000"} className="w-full rounded"/>
-                            <h1 className="absolute top-5 left-5 text-white">Nos entrées</h1>
-                            <p className="text-gray-400 font-thin absolute top-20 left-5">Trouver votre meilleur starter</p>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink>
-                            <Image src={"/entree.jpg"} alt={""} width={"2000"} height={"2000"} className="w-full rounded"/>
-                            <h1 className="absolute top-5 left-5 text-white">Nos entrées</h1>
-                            <p className="text-gray-400 font-thin absolute top-20 left-5">Trouver votre meilleur starter</p>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink>
-                            <Image src={"/entree.jpg"} alt={""} width={"2000"} height={"2000"} className="w-full rounded"/>
-                            <h1 className="absolute top-5 left-5 text-white">Nos entrées</h1>
-                            <p className="text-gray-400 font-thin absolute top-20 left-5">Trouver votre meilleur starter</p>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink>
-                            <Image src={"/entree.jpg"} alt={""} width={"2000"} height={"2000"} className="w-full rounded"/>
-                            <h1 className="absolute top-5 left-5 text-white">Nos entrées</h1>
-                            <p className="text-gray-400 font-thin absolute top-20 left-5">Trouver votre meilleur starter</p>
-                        </NavigationMenuLink>
+                        ))}
                     </NavigationMenuContent>
                 </NavigationMenuItem>
             </NavigationMenuList>
