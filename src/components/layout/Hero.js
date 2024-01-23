@@ -12,14 +12,17 @@ export default function Hero() {
                     Le sushi est la pièce manquante qui rend chaque jour complet, une joie simple mais délicieuse dans la vie.
                 </p>
                 <div className="flex gap-4 text-sm">
-                    <button className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-md">
-                        <a href={"/starter"}>
-                        Commander
-                        </a>
-                    </button>
-                    <button className="flex items-center border-0 gap-2 py-2 font-semibold">
-                        <a href={"/story"}>Notre histoire</a>
-                    </button>
+                    <a href={"/starter"}>
+                        <button
+                            className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-md">
+                            Commander
+                        </button>
+                    </a>
+                    <a href={"/story"}>
+                        <button className="flex items-center border-0 gap-2 py-2 font-semibold">
+                            Notre histoire
+                        </button>
+                    </a>
                 </div>
             </div>
             <div className="relative hidden md:block">
