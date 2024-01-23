@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select"
 
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Input } from "@/components/ui/input"
 
 import {
     AlertDialog,
@@ -28,11 +29,33 @@ import {
 
 import { Textarea } from "@/components/ui/textarea"
 import {useState} from "react";
+import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import {Button} from "@/components/ui/button";
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import * as z from "zod";
+import axios from "axios";
+import config from "@/conf";
+import {toast} from "react-toastify";
 
+const FormSchema = z.object({
+
+    email: z.string().min(2, {
+        message: "email manquant",
+    }),
+});
 
 export default function ContactPage() {
     const [selectedSubject, setSelectedSubject] = useState('');
     const [ticketBody, setTicketBody] = useState('');
+
+    const form = useForm({
+        resolver: zodResolver(FormSchema),
+        defaultValues: {
+            username: "",
+            password: "",
+        },
+    });
 
     const handleSubjectChange = (value) => {
         setSelectedSubject(value);
@@ -47,6 +70,19 @@ export default function ContactPage() {
         console.log('Selected Subject:', selectedSubject);
         console.log('Ticket Body:', ticketBody);
     };
+
+    async function onSubmit(data) {
+
+        try {
+            data.email
+        } catch (error) {
+            if (error.response && error.response.status === 401) {
+                toast.error("Invalid username or password");
+            } else if (error.response){
+                toast.error("Unexpected response status:");
+            }
+        }
+    }
 
     return (
         <div className={"text-white py-10 pb-40"}>
@@ -96,7 +132,27 @@ export default function ContactPage() {
                                 </button>
                             </form>
                         </TabsContent>
-                        <TabsContent value="password">Change your password here.</TabsContent>
+                        <TabsContent value="password">
+                            <h1 className={"font-bold py-4"}>Récupération de mot de passe avec votre email</h1>
+                            <Form {...form}>
+                                <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-9" method="POST">
+                                    <FormField
+                                        control={form.control}
+                                        name="email"
+                                        render={({ field }) => (
+                                            <FormItem className="text-white">
+                                                <FormLabel className="text-lg">Email</FormLabel>
+                                                <FormControl>
+                                                    <Input className="border-2 rounded py-5 text-lg" placeholder="email" {...field} />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <Button className="text-lg" type="submit">Envoyer l'email</Button>
+                                </form>
+                            </Form>
+                        </TabsContent>
                             <TabsContent value="faq" className={""}>
                                 <h1 className={"text-sm font-bold text-center bg-primary rounded py-2 my-2 max-w-sm mx-auto"}>Retrouvez
                                     les questions/réponses les + fréquentes</h1>
