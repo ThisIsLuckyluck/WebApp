@@ -8,7 +8,7 @@ export default function dessertPage(){
         <div>
             <div className={"flex items-center justify-between"}>
                 <h1 className={"text-2xl font-bold text-white pr-2"}>Nos desserts</h1>
-                <p className={"italic text-xs text-gray-400 sm:text-sm"}>Découvrez notre assortiment de desserts, où chaque saveur vous emporte dans un voyage gourmand et inoubliable.</p>
+                <p className={"italic hidden text-gray-400 sm:text-sm sm:flex"}>Découvrez notre assortiment de desserts, où chaque saveur vous emporte dans un voyage gourmand et inoubliable.</p>
                 <div className={"flex text-gray-400 min-w-48 justify-between"}>
                     <a href="/starter" className={"hover:text-white"}>Entree</a>
                     <p>/</p>

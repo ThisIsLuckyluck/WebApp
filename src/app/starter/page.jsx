@@ -8,7 +8,7 @@ export default function starterPage(){
         <div>
             <div className={"flex items-center justify-between"}>
                 <h1 className={"text-2xl font-bold text-white pr-2"}>Entrée</h1>
-                <p className={"italic text-xs text-gray-400 sm:text-sm"}>Découvrez une expérience culinaire inoubliable
+                <p className={"italic hidden text-gray-400 sm:text-sm sm:flex"}>Découvrez une expérience culinaire inoubliable
                     dès la première bouchée.</p>
                 <div className={"flex text-gray-400 min-w-48 justify-between"}>
                     <a href="/starter" className={"text-white hover:text-gray-200"}>Entree</a>
