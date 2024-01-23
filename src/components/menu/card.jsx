@@ -64,7 +64,7 @@ export function CardUi({ productType }) {
                                     <h1 className={"text-center font-bold text-white text-2xl px-2 w-full sm:text-lg md:text-sm lg:text-xs"}>{item.product_name}</h1>
                                     <HoverCard>
                                         <HoverCardTrigger className={"cursor-zoom-in m-0 p-0"}>
-                                            <p className={"w-full mx-auto bg-gray-800 text-white text-center max-w-16 my-2 rounded text-sm"}>+ d'info</p>
+                                            <p className={"w-full mx-auto bg-gray-800 text-white text-center max-w-16 my-2 rounded text-sm"}>+ d&apos;info</p>
                                         </HoverCardTrigger>
                                         <HoverCardContent className={"bg-gray-800 text-white border-0"}>
                                             {item.description}

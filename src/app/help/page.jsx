@@ -87,7 +87,7 @@ export default function ContactPage() {
     return (
         <div className={"text-white py-10 pb-40"}>
             <h1 className={"font-bold text-center text-lg lg:text-4xl pb-5"}>
-                <p className={"w-full max-w-xs mx-auto rounded-lg border-4 p-0 m-0 mb-3"}>Besoin d'aide ?</p>
+                <p className={"w-full max-w-xs mx-auto rounded-lg border-4 p-0 m-0 mb-3"}>Besoin d&apos;aide ?</p>
                 <p>Nos <span className={"bg-primary rounded-sm p-2 py-0"}>collaborateur</span> sont là pour vous aider</p>
             </h1>
             <div className={"w-full"}>
@@ -101,7 +101,7 @@ export default function ContactPage() {
                         <div className={"w-full max-w-lg mx-auto my-5"}>
                         <TabsContent value="ticket">
                             <form onSubmit={handleSubmit}>
-                                <h1 className={"font-bold text-sm lg:text-xl"}>Création d'un ticket</h1>
+                                <h1 className={"font-bold text-sm lg:text-xl"}>Création d&apos;un ticket</h1>
                                 <div className={"my-5"}>
                                     <p className={"text-xs lg:text-sm"}>Sujet de votre ticket</p>
                                     <Select onValueChange={handleSubjectChange}>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                                             </FormItem>
                                         )}
                                     />
-                                    <Button className="text-lg" type="submit">Envoyer l'email</Button>
+                                    <Button className="text-lg" type="submit">Envoyer l&apos;email</Button>
                                 </form>
                             </Form>
                         </TabsContent>

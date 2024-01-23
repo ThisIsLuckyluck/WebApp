@@ -28,7 +28,7 @@ export default function HomeMenu() {
             }
         };
         fetchData();
-    }, []);
+    }, [toastMessage]);
 
     function onClickCart(key) {
         if (isAuthenticated) {
