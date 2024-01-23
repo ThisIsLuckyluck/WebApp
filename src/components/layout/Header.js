@@ -52,7 +52,7 @@ export default function Header() {
                     <Link href={'/'}>Home</Link>
                     <Navbar />
                     <Link href={'/story'}>Notre histoire</Link>
-                    <Link href={'/contact'}>Contact</Link>
+                    <Link href={'/help'}>Aide</Link>
                 </nav>
                 <div className={"flex items-center"}>
                     <DropdownMenu>
@@ -65,7 +65,7 @@ export default function Header() {
                             <DropdownMenuItem><Link href={"/home"}>Home</Link></DropdownMenuItem>
                             <DropdownMenuItem><Link href={"/starter"}>Nos produits</Link></DropdownMenuItem>
                             <DropdownMenuItem><Link href={"/story"}>Notre histoire</Link></DropdownMenuItem>
-                            <DropdownMenuItem><Link href={"/contact"}>Contact</Link></DropdownMenuItem>
+                            <DropdownMenuItem><Link href={"/help"}>Aide</Link></DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 {isAuthenticated ? (
