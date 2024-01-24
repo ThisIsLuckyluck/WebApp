@@ -74,7 +74,7 @@ export default function Header() {
                             <DropdownMenuTrigger className={"hover:border-0 border-0 focus:outline-none"}>
                                 <Avatar className={"size-12"}>
                                     <AvatarImage src="https://github.com/shadcn.png" />
-                                    <AvatarFallback>CN</AvatarFallback>
+                                    <AvatarFallback>{userInfo}</AvatarFallback>
                                 </Avatar>
                             </DropdownMenuTrigger>
                             <CartIcon />
