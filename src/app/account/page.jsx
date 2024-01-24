@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import config from "@/conf";
 
 export default function AccountPage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -24,7 +26,7 @@ export default function AccountPage() {
             const formData = new FormData();
             formData.append('avatar', selectedFile);
 
-            axios.post('http://localhost:3001/user/upload/avatar', formData, {
+            axios.post(`${config.URLApi}/user/upload/avatar`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
@@ -34,6 +36,11 @@ export default function AccountPage() {
                     toast.success(response.data.message, {
                         theme: "dark"
                     });
+
+                    // Wait for 2 seconds (2000 milliseconds) before reloading the page
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
                 })
                 .catch((error) => {
                     toast.error(error.response.data.message, {
