@@ -23,7 +23,7 @@ export default function Footer() {
                                 </ul>
                                 <ul className="text-white dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="/contact"
+                                        <a href="/help"
                                            className="hover:underline ">Contact</a>
                                     </li>
                                 </ul>
