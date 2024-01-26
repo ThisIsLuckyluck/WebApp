@@ -23,8 +23,8 @@ export default function Footer() {
                                 </ul>
                                 <ul className="text-white dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="/contact"
-                                           className="hover:underline ">Contact</a>
+                                        <a href="/help"
+                                           className="hover:underline ">Aide</a>
                                     </li>
                                 </ul>
                                 <ul className="text-white dark:text-gray-400 font-medium">
@@ -48,10 +48,10 @@ export default function Footer() {
                                     Légales</h2>
                                 <ul className="text-white dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">Politique privée</a>
+                                        <a href="./legal" className="hover:underline">Politique privée</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="hover:underline">Termes et conditions</a>
+                                        <a href="./legal" className="hover:underline">Termes et conditions</a>
                                     </li>
                                 </ul>
                             </div>
@@ -63,16 +63,15 @@ export default function Footer() {
               href="/" className="hover:underline">Fast Sushi™</a>. Tous droits réservés.
           </span>
                         <div className="flex mt-4 sm:justify-center sm:mt-0">
-                            <a href="#" className="text-white hover:text-white dark:hover:text-white">
+                            <a href="http://github.com/FAST-SUSHI-NEXTECH" className="text-white hover:text-gray-300 dark:hover:text-white ms-5">
                                 <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="currentColor" viewBox="0 0 8 19">
-                                    <path fillRule="evenodd"
-                                          d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                                          clipRule="evenodd"/>
+                                     fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                                 </svg>
-                                <span className="sr-only">Facebook page</span>
+                                <span className="sr-only">GitHub</span>
                             </a>
-                            <a href="#" className="text-white hover:text-gray-300 dark:hover:text-white ms-5">
+                            <a href="https://discord.com/" className="text-white hover:text-gray-300 dark:hover:text-white ms-5">
                                 <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                      fill="currentColor" viewBox="0 0 21 16">
                                     <path
