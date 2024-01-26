@@ -11,9 +11,12 @@ import {decode} from "jsonwebtoken";
 export default function OrderStatePage(){
     const [stateOrder, setStateOrder] = useState('');
     const [valueBar, setValueBar] = useState(0);
+    const [idOrder, setIdOrder] = useState('');
+    const [orderDetail, setOrderDetail] = useState('');
+    const [stringState, setStringState] = useState('');
 
     useEffect(() => {
-        const fetchStateProduct = async () => {
+        const fetchStateOrder = async () => {
             try {
                 const token = localStorage.getItem("authToken");
 
@@ -29,10 +32,13 @@ export default function OrderStatePage(){
                 const response = await axios.post(`${config.URLApi}/order/state`, data, { headers });
 
                 if (response.status === 200) {
-                    console.log(response.data[0].order_state);
                     setStateOrder(response.data[0].order_state);
+                    setIdOrder(response.data[0].id_order);
+                    console.log(idOrder);
 
-                    setValueBar(SetterBar(1));
+                    const { value, string } = SetterBar(response.data[0].order_state);
+                    setValueBar(value);
+                    setStringState(string);
                 }
             } catch (error) {
                 console.error(error);
