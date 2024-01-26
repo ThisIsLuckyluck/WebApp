@@ -8,12 +8,15 @@ import Image from "next/image";
 
 import { Separator } from "@/components/ui/separator"
 import {useAuth} from "@/AuthContext";
+import {useRouter} from "next/navigation";
 
 export default function CartPage() {
     const [response, setResponse] = useState(null);
     const [arrayIdProduct, setArrayIdProduct] = useState([])
 
     const { updateCartCount } = useAuth();
+
+    const router = useRouter();
 
     const createOrder = async (idProductList) => {
         let array = idProductList.toString().split(',')
@@ -43,6 +46,7 @@ export default function CartPage() {
             console.error("Error:", error.message);
             console.log("Failed to create Order or Order Content.");
         }
+        router.push('/order');
     };
 
 
