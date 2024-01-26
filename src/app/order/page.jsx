@@ -71,23 +71,29 @@ export default function OrderStatePage(){
     }, [idOrder, stateOrder]);
 
     const SetterBar = (stateOrder) => {
-        let setValueBar;
+        let value;
+        let string;
+
         switch (stateOrder) {
             case 1:
-                setValueBar = 25;
+                string = 'En attente de prise en charge';
+                value = 25;
                 break;
             case 2:
-                setValueBar = 65;
+                string = 'En cours de préparation';
+                value = 65;
                 break;
             case 3:
-                setValueBar = 100;
+                string = 'Commande prête';
+                value = 100;
                 break;
             default:
-                setValueBar = 0;
+                string = 'None';
+                value = 0;
                 break;
         }
 
-        return setValueBar;
+        return {value, string};
     };
 
 
