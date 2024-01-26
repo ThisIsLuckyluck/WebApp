@@ -98,15 +98,16 @@ export default function OrderStatePage(){
 
 
     return(
-        <div className={"bg-primary"}>
-            <section className={"bg-white max-w-5xl mx-auto"}>
-                <div className={"bg-amber-300 max-w-sm mx-auto"}>
-                    <h1 className={"text-center text-lg md:text-3xl font-bold text-white"}>Votre commande en cours...</h1>
+        <div className={"rounded-lg"}>
+            <section className={"max-w-5xl mx-auto"}>
+                <div className={"max-w-sm mx-auto"}>
+                    <h1 className={"text-center text-lg md:text-3xl font-bold text-white"}>Votre commande:</h1>
                 </div>
-                <div className={"flex py-5"}>
-                    <div className={"bg-green-600 w-full"}>
-                        <h1 className={"text-center font-bold text-white text-lg md:text-xl pb-3"}>Etat de votre commande</h1>
-                        <Progress value={valueBar} className={"h-[40%] w-[80%] mx-auto rounded-md"}/>
+                <div className={"lg:flex justify-between py-5 w-full items-start"}>
+                    <div className={"bg-gray-400 rounded-lg w-full lg:max-w-md h-40 mb-5"}>
+                        <h1 className={"text-center font-bold text-white text-lg md:text-xl pb-3 pt-3"}>Etat de votre commande</h1>
+                        <p className={'text-center bg-gray-600 max-w-64 mx-auto py-2 rounded-md text-white font-bold my-2'}>{stringState}</p>
+                        <Progress value={valueBar} className={"h-6 w-[80%] mx-auto rounded-md"}/>
                     </div>
                     <div className={"bg-blue-900 w-full"}>
                         <h1 className={"text-center font-bold text-white text-lg md:text-xl"}>Detail de votre commande</h1>
