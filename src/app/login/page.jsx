@@ -108,7 +108,7 @@ export default function LoginPage () {
                 <Link className="bg-gray-400 hover:bg-gray-500 p-2 w-full text-white rounded flex justify-center" href={"/register"} >Créer un compte ?</Link>
             </form>
             <FormDescription className="flex justify-center m-2 text-white">
-                Vous n'avez pas de compte chez nous ?
+                Vous n&apos;avez pas de compte chez nous ?
             </FormDescription>
         </Form>
         </section>

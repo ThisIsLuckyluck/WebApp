@@ -1,6 +1,7 @@
 const config = {
-    secretKey: "hello",
-    URLApi: "http://10.10.10.10:2222",
+    secretKey: "xxxxxxxx",
+    URLApi: "xxxxxxxxxxx",
+    URLAssets: "xxxxxxxxxxxx",
 };
 
 export default config;

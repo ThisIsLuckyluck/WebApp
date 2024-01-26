@@ -217,7 +217,7 @@ export default function CartPage() {
                     {response && response.map((item) => (
                         <div key={item.id_product}>
                         <div className={"flex py-2"}>
-                            <Image src="/entree.jpg" alt="sushi" width={150} height={150} className="rounded" />
+                            <Image src={config.URLAssets + "/images/product/" + item.id_product + "/image/image.png"} alt="sushi" width={150} height={150} className="rounded" />
                             <div className={"w-full max-w-xs mx-auto"}>
                                 <div className={"flex justify-between"}>
                                     <div>

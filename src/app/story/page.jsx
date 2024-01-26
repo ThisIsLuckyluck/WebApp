@@ -30,7 +30,7 @@ export default function storyPage() {
                         <h1 className={"text-sm font-bold py-2 sm:text-lg md:text-xl lg:text-2xl"}>Découverte de FastSushi</h1>
                         <p className={"text-xs py-2 sm:text-sm md:text-lg lg:text-xl"}>Bienvenue chez FastSushi, un établissement fondé en 2008 par le passionné de cuisine
                             japonaise, M. Makytori. Spécialisé dans la restauration rapide, FastSushi vous invite à un
-                            voyage gustatif exceptionnel, mettant en avant des produits alimentaires d'inspiration
+                            voyage gustatif exceptionnel, mettant en avant des produits alimentaires d&apos;inspiration
                             japonaise tels que les sushis, les makis, les sashimis, les spring rolls, et bien plus
                             encore. Notre mission est de faire découvrir à notre clientèle la vraie cuisine japonaise,
                             en utilisant des produits locaux de qualité pour offrir une expérience culinaire authentique
@@ -43,7 +43,7 @@ export default function storyPage() {
                             menu varié est conçu pour satisfaire les amateurs de cuisine japonaise, offrant une
                             expérience gastronomique unique qui ravira vos papilles.</p>
                         <h1 className={"text-sm font-bold py-2 sm:text-lg md:text-xl lg:text-2xl"}>À la Rencontre de M. Makytori</h1>
-                        <p className={"text-xs py-2 sm:text-sm md:text-lg lg:text-xl"}>Rencontrez M. Makytori, le gérant passionné derrière l'entreprise FastSushi. Fort d'une expertise culinaire et d'une passion pour la cuisine japonaise, M. Makytori a créé un lieu où l'authenticité des saveurs rencontre l'innovation culinaire. Son dévouement à faire découvrir la véritable essence de la cuisine japonaise se reflète dans chaque plat préparé chez FastSushi. Venez partager cette expérience gastronomique exceptionnelle et découvrez la vision unique de M. Makytori pour la cuisine japonaise à travers notre menu diversifié et savoureux.</p>
+                        <p className={"text-xs py-2 sm:text-sm md:text-lg lg:text-xl"}>Rencontrez M. Makytori, le gérant passionné derrière l&apos;entreprise FastSushi. Fort d&apos;une expertise culinaire et d&apos;une passion pour la cuisine japonaise, M. Makytori a créé un lieu où l&apos;authenticité des saveurs rencontre l&apos;innovation culinaire. Son dévouement à faire découvrir la véritable essence de la cuisine japonaise se reflète dans chaque plat préparé chez FastSushi. Venez partager cette expérience gastronomique exceptionnelle et découvrez la vision unique de M. Makytori pour la cuisine japonaise à travers notre menu diversifié et savoureux.</p>
                     </ScrollArea>
                 </article>
             </section>

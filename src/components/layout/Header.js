@@ -15,6 +15,7 @@ import { Sling as Hamburger } from 'hamburger-react'
 export default function Header() {
     const { isAuthenticated, logout } = useAuth();
     const [userInfo, setUserInfo] = useState('');
+    const [userId, setUserId] = useState('')
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -26,6 +27,7 @@ export default function Header() {
                     });
 
                     setUserInfo(response.data[0].username);
+                    setUserId(response.data[0].id_user)
                 } catch (error) {
                     console.error("Error fetching user info:", error);
                 }
@@ -72,9 +74,9 @@ export default function Header() {
                     <div className={"flex"}>
                         <DropdownMenu>
                             <DropdownMenuTrigger className={"hover:border-0 border-0 focus:outline-none"}>
-                                <Avatar className={"size-12"}>
-                                    <AvatarImage src="https://github.com/shadcn.png" />
-                                    <AvatarFallback>CN</AvatarFallback>
+                                <Avatar className={"size-16"}>
+                                    <AvatarImage src={config.URLAssets + "/images/client/" + userId + "/avatar/avatar.png"} />
+                                    <AvatarFallback>{userInfo}</AvatarFallback>
                                 </Avatar>
                             </DropdownMenuTrigger>
                             <CartIcon />
