@@ -45,8 +45,30 @@ export default function OrderStatePage(){
             }
         };
 
-        fetchStateProduct();
-    }, []);
+        const fetchDetailOrder = async () => {
+            try {
+                const token = localStorage.getItem("authToken");
+
+                const data = { id_order: idOrder };
+
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                };
+
+                const response = await axios.post(`${config.URLApi}/order/details`, data, { headers });
+
+                if (response.status === 200) {
+                    setOrderDetail(response.data);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchStateOrder();
+        fetchDetailOrder();
+    }, [idOrder, stateOrder]);
 
     const SetterBar = (stateOrder) => {
         let setValueBar;
