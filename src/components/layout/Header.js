@@ -69,10 +69,10 @@ export default function Header() {
                         <DropdownMenuContent className={"md:hidden"}>
                             <DropdownMenuLabel className={"text-center"}>Menu</DropdownMenuLabel>
                             <DropdownMenuSeparator/>
-                            <DropdownMenuItem><Link href={"/home"}>Home</Link></DropdownMenuItem>
-                            <DropdownMenuItem><Link href={"/starter"}>Nos produits</Link></DropdownMenuItem>
-                            <DropdownMenuItem><Link href={"/story"}>Notre histoire</Link></DropdownMenuItem>
-                            <DropdownMenuItem><Link href={"/help"}>Aide</Link></DropdownMenuItem>
+                            <Link href={"/"}><DropdownMenuItem>Home</DropdownMenuItem></Link>
+                            <Link href={"/starter"}><DropdownMenuItem>Nos produits</DropdownMenuItem></Link>
+                            <Link href={"/story"}><DropdownMenuItem>Notre histoire</DropdownMenuItem></Link>
+                            <Link href={"/help"}><DropdownMenuItem>Aide</DropdownMenuItem></Link>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 {isAuthenticated ? (
