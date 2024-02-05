@@ -2,22 +2,22 @@ export const navbarList = [
     {
         title: "Nos entrées",
         href: "/starter",
-        path: "/entree.jpg",
+        path: "/entree2Sub.png",
         description:
-            "Bryan is in the kitchen ?",
+            "Découvrez nos meilleurs entrées",
     },
     {
         title: "Nos plats",
         href: "/plate",
-        path: "/Kerb_auth.png",
+        path: "/platSub.png",
         description:
-            "Okay bro",
+            "Une poursuite de votre découverte",
     },
     {
         title: "Nos desserts",
         href: "/dessert",
-        path: "/LDAP_auth.png",
+        path: "/dessert.png",
         description:
-            "No way captain",
+            "Pour finir en beauté",
     },
 ]
