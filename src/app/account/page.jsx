@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import config from "@/conf";
+import RecordOrderTable from "@/components/layout/RecordOrderTable";
 
 export default function AccountPage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -55,6 +56,7 @@ export default function AccountPage() {
     return (
         <div>
             <ToastContainer />
+            <section className={"flex"}>
             <div className={"bg-gray-600 rounded-md p-5 items-center w-full max-w-60"}>
                 <div className={"w-full max-w-52 pb-5"}>
                     <h1 className={"text-sm md:text-lg font-bold text-white text-center"}>Changer votre avatar</h1>
@@ -83,6 +85,8 @@ export default function AccountPage() {
                     </button>
                 </div>
             </div>
+            <RecordOrderTable />
+            </section>
         </div>
     );
 }
