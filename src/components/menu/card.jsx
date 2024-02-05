@@ -10,11 +10,19 @@ import {
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import {useAuth} from "@/AuthContext";
+import {
+    AlertDialog, AlertDialogAction, AlertDialogCancel,
+    AlertDialogContent, AlertDialogDescription, AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger
+} from "@/components/ui/alert-dialog";
 
 export function CardUi({ productType }) {
     const [productData, setProductData] = useState(null);
 
     /*WE NEED TO HANDLE LOADING ISLOADING STATE AND USE SKELETON COMPONEnT FROM LIB SHADCN*/
+    /*THE BACKGROUND = IMAGE OF THE PRODUCT BUT WITH OPCAITY 30%*/
 
     const { isAuthenticated, updateCartCount } = useAuth();
 
@@ -62,14 +70,22 @@ export function CardUi({ productType }) {
                                 <p className={"text-3xl text-center text-white font-bold"}>{item.price}$</p>
                                 <Image src={config.URLAssets + "/images/product/" + item.id_product + "/image/image.png"} alt={"img"} width={1000} height={1000} className={"py-2"} />
                                     <h1 className={"text-center font-bold text-white text-2xl px-2 w-full sm:text-lg md:text-sm lg:text-xs"}>{item.product_name} {item.id_product}</h1>
-                                    <HoverCard>
-                                        <HoverCardTrigger className={"cursor-zoom-in m-0 p-0"}>
-                                            <p className={"w-full mx-auto bg-gray-800 text-white text-center max-w-16 my-2 rounded text-sm"}>+ d&apos;info</p>
-                                        </HoverCardTrigger>
-                                        <HoverCardContent className={"bg-gray-800 text-white border-0"}>
-                                            {item.description}
-                                        </HoverCardContent>
-                                    </HoverCard>
+                                <AlertDialog>
+                                    <div className={"w-full max-w-16 mx-auto"}>
+                                        <AlertDialogTrigger className={"w-full mx-auto bg-gray-800 text-white font-bold text-center my-2 rounded text-sm hover:bg-gray-900 py-1 px-1"}>+ d&apos;info</AlertDialogTrigger>
+                                    </div>
+                                    <AlertDialogContent className={"text-white bg-gray-800 shadow-lg border-0 shadow-black"}>
+                                        <AlertDialogHeader>
+                                            <AlertDialogTitle className={"text-xl"}>{item.product_name}</AlertDialogTitle>
+                                            <AlertDialogDescription className={"text-gray-200 text-lg"}>
+                                                {item.description}
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter>
+                                            <AlertDialogAction>Close</AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
                                 <div>
                                     <button className={"bg-primary p-2 rounded text-sm font-bold text-white mx-auto w-full hover:bg-red-600"} onClick={() => onClickCartforCard(item.id_product)}>ajouter au panier</button>
                                 </div>
