@@ -92,7 +92,7 @@ export default function Header() {
                                 <DropdownMenuSeparator/>
                                 <Link href={"/account"}><DropdownMenuItem>Profil</DropdownMenuItem></Link>
                                 <Link href={"/cart"}><DropdownMenuItem>Panier</DropdownMenuItem></Link>
-                                <Link href={"/historic"}><DropdownMenuItem>Historique</DropdownMenuItem></Link>
+                                <Link href={"/account"}><DropdownMenuItem>Historique</DropdownMenuItem></Link>
                                 <button onClick={onLogout}
                                         className="bg-red-500 rounded-md text-white px-3 py-1 justify-center flex mx-auto my-2 text-sm">Logout
                                 </button>

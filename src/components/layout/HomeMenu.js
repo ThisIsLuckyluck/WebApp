@@ -60,7 +60,7 @@ export default function HomeMenu() {
                 <div className="grid sm:grid-cols-3 gap-4">
                     {[...Array(3)].map((_, i) => (
                         <div key={i} className="bg-gray-700 p-4 rounded-lg text-center">
-                            <p className="text-4xl font-black text-white">$</p>
+                            <p className="text-4xl font-black text-white">€</p>
                             <Image src="/sushi.png" alt="sushi" width={300} height={200} className="mx-auto" />
                             <div className="text-white text-2xl font-bold text-center mb-2">null</div>
                             <div className="text-gray-400 py-3">...</div>
