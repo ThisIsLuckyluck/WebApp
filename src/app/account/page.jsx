@@ -60,9 +60,10 @@ export default function AccountPage() {
             <div className={"bg-gray-600 rounded-md p-5 items-center w-full max-w-60"}>
                 <div className={"w-full max-w-52 pb-5"}>
                     <h1 className={"text-sm md:text-lg font-bold text-white text-center"}>Changer votre avatar</h1>
+                    <h1 className={"text-xs md:text-sm text-primary italic text-center pt-3"}>uniquement format .png</h1>
                 </div>
                 <div className={"w-full max-w-36 mx-auto pb-5"}>
-                <label htmlFor="avatar-input" style={{cursor: 'pointer'}}>
+                    <label htmlFor="avatar-input" style={{cursor: 'pointer'}}>
                     <input type="file" id="avatar-input" name="avatar" onChange={handleFileChange}
                            className={"hidden"}/>
                     {previewImage && (
