@@ -41,12 +41,12 @@ export default function CartPage() {
             );
 
             if (response.status === 201) {
+                localStorage.removeItem("Cart");
                 router.push('/order');
             } else {
                 toast.error("Failed to create Order or Order Content.");
             }
         } catch (error) {
-            console.log(error.response.status);
             if (error.response.status === 422) {
                 toast.error("Merci de renseignez au moins un article", {
                     theme: "dark"
