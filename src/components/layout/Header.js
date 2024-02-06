@@ -47,10 +47,11 @@ export default function Header() {
     };
 
     return (
-        <>
-            <header className="flex items-center justify-between py-4">
+        <div className={"h-20"}>
+        <div className={"mx-auto fixed top-0 left-0 right-0 z-50 py-12 bg-opacity-75 backdrop-blur-md"}>
+            <div className="max-w-6xl mx-auto fixed top-0 left-0 right-0 z-50 py-4 px-6 flex items-center justify-between">
                 <Link className="text-primary font-bold text-2xl flex items-center" href={'/'}>
-                    <Image src={"/logo_blanc.png"} alt={""} width={"50"} height={"50"}/>
+                    <Image src={"/logo_blanc.png"} alt={""} width={"50"} height={"50"} />
                     <p className={""}>FAST</p>
                     <span className="text-white"> SUSHI</span>
                 </Link>
@@ -63,46 +64,47 @@ export default function Header() {
                 <div className={"flex items-center"}>
                     <DropdownMenu>
                         <DropdownMenuTrigger className={"hover:border-0 border-0 focus:outline-none flex md:hidden px-2"}>
-                            <Hamburger size={30} color="#FFFFFF"/>
+                            <Hamburger size={30} color="#FFFFFF" />
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className={"md:hidden"}>
                             <DropdownMenuLabel className={"text-center"}>Menu</DropdownMenuLabel>
-                            <DropdownMenuSeparator/>
+                            <DropdownMenuSeparator />
                             <Link href={"/"}><DropdownMenuItem>Home</DropdownMenuItem></Link>
                             <Link href={"/starter"}><DropdownMenuItem>Nos produits</DropdownMenuItem></Link>
                             <Link href={"/story"}><DropdownMenuItem>Notre histoire</DropdownMenuItem></Link>
                             <Link href={"/help"}><DropdownMenuItem>Aide</DropdownMenuItem></Link>
                         </DropdownMenuContent>
                     </DropdownMenu>
-                {isAuthenticated ? (
-                    <div className={"flex"}>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger className={"hover:border-0 border-0 focus:outline-none"}>
-                                <Avatar className={"size-16"}>
-                                    { userId !== 0 && (
-                                        <AvatarImage src={srcUrl()} />
-                                    )}
-                                    <AvatarFallback>{userInfo}</AvatarFallback>
-                                </Avatar>
-                            </DropdownMenuTrigger>
-                            <CartIcon />
-                            <DropdownMenuContent>
-                                <DropdownMenuLabel className={"text-center"}>Hello, {userInfo} !</DropdownMenuLabel>
-                                <DropdownMenuSeparator/>
-                                <Link href={"/account"}><DropdownMenuItem>Profil</DropdownMenuItem></Link>
-                                <Link href={"/cart"}><DropdownMenuItem>Panier</DropdownMenuItem></Link>
-                                <Link href={"/account"}><DropdownMenuItem>Historique</DropdownMenuItem></Link>
-                                <button onClick={onLogout}
-                                        className="bg-red-500 rounded-md text-white px-3 py-1 justify-center flex mx-auto my-2 text-sm">Logout
-                                </button>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
-                ) : (
-                    <Link href={'/login'} className="bg-gray-700 rounded-md text-white px-4 py-2">Se connecter</Link>
-                )}
+                    {isAuthenticated ? (
+                        <div className={"flex"}>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger className={"hover:border-0 border-0 focus:outline-none"}>
+                                    <Avatar className={"size-16"}>
+                                        {userId !== 0 && (
+                                            <AvatarImage src={srcUrl()} />
+                                        )}
+                                        <AvatarFallback>{userInfo}</AvatarFallback>
+                                    </Avatar>
+                                </DropdownMenuTrigger>
+                                <CartIcon />
+                                <DropdownMenuContent>
+                                    <DropdownMenuLabel className={"text-center"}>Hello, {userInfo} !</DropdownMenuLabel>
+                                    <DropdownMenuSeparator />
+                                    <Link href={"/account"}><DropdownMenuItem>Profil</DropdownMenuItem></Link>
+                                    <Link href={"/cart"}><DropdownMenuItem>Panier</DropdownMenuItem></Link>
+                                    <Link href={"/account"}><DropdownMenuItem>Historique</DropdownMenuItem></Link>
+                                    <button onClick={onLogout}
+                                            className="bg-red-500 rounded-md text-white px-3 py-1 justify-center flex mx-auto my-2 text-sm">Logout
+                                    </button>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
+                    ) : (
+                        <Link href={'/login'} className="bg-gray-700 rounded-md text-white px-4 py-2">Se connecter</Link>
+                    )}
                 </div>
-            </header>
-        </>
+            </div>
+        </div>
+        </div>
     );
 }
