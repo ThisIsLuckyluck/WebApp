@@ -81,7 +81,7 @@ export default function HomeMenu() {
                         <div className="grid sm:grid-cols-3 gap-4">
                             {bestSellers.map((item) => (
                                 <div key={item.id_product} className="bg-gray-700 p-4 rounded-lg text-center">
-                                    <p className="text-4xl font-black text-white">{item.price}$</p>
+                                    <p className="text-4xl font-black text-white">{item.price}€</p>
                                     <Image src={config.URLAssets + "/images/product/" + item.id_product + "/image/image.png"} alt="sushi" width={300} height={200} className="mx-auto"/>
                                     <div
                                         className="text-white text-2xl font-bold text-center mb-2">{item.product_name}</div>

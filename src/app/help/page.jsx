@@ -91,14 +91,14 @@ export default function ContactPage() {
                 <p>Nos <span className={"bg-primary rounded-sm p-2 py-0"}>collaborateur</span> sont là pour vous aider</p>
             </h1>
             <div className={"w-full"}>
-                <Tabs defaultValue="ticket" className=" max-w-xl mx-auto my-5 h-[400px]">
+                <Tabs defaultValue="ticket" className="max-w-xl mx-auto my-5 h-[400px]">
                     <TabsList className={"w-full"}>
                         <TabsTrigger value="ticket">Créez un ticket</TabsTrigger>
                         <TabsTrigger value="password">Mot de passe oublié</TabsTrigger>
                         <TabsTrigger value="faq">FAQ</TabsTrigger>
                     </TabsList>
                     <section className={"bg-gray-600 py-2 my-5 mx-auto rounded-md"}>
-                        <div className={"w-full max-w-lg mx-auto my-5"}>
+                        <div className={"w-full mx-auto my-5 max-w-sm md:max-w-lg"}>
                         <TabsContent value="ticket">
                             <form onSubmit={handleSubmit}>
                                 <h1 className={"font-bold text-sm lg:text-xl"}>Création d&apos;un ticket</h1>
