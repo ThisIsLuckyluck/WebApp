@@ -12,6 +12,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger
 } from "@/components/ui/alert-dialog";
+import {useRouter} from "next/navigation";
 
 export function CardUi({ productType }) {
     const [productData, setProductData] = useState(null);
@@ -21,6 +22,7 @@ export function CardUi({ productType }) {
 
     const { isAuthenticated, updateCartCount } = useAuth();
 
+    const router = useRouter();
 
     function onClickCartforCard(key) {
         if (isAuthenticated) {
@@ -34,6 +36,8 @@ export function CardUi({ productType }) {
 
             localStorage.setItem("Cart", updatedKeysString);
             updateCartCount(localStorage.getItem('Cart'));
+        } else if (!isAuthenticated) {
+            router.push('/login');
         }
     }
 
