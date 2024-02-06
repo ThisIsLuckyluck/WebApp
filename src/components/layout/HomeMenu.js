@@ -6,11 +6,15 @@ import {useEffect, useState} from "react";
 import config from "@/conf";
 import {toast} from "react-toastify";
 import {useAuth} from "@/AuthContext";
+import {useRouter} from "next/navigation";
+
 
 
 export default function HomeMenu() {
     const [bestSellers, setBestSellers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const router = useRouter();
 
     const { isAuthenticated, updateCartCount } = useAuth();
 
@@ -42,6 +46,9 @@ export default function HomeMenu() {
 
             localStorage.setItem("Cart", updatedKeysString);
             updateCartCount(localStorage.getItem('Cart'));
+        }
+        else if (!isAuthenticated) {
+            router.push('/login');
         }
     }
 
