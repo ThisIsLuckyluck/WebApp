@@ -27,7 +27,7 @@ export default function CartPage() {
             const token = localStorage.getItem("authToken");
 
             const response = await axios.post(
-                `${config.URLApiLocal}/order/create`,
+                `${config.URLApi}/order/create`,
                 {
                     order_content: array,
                 },
