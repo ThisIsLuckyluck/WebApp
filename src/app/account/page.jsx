@@ -66,8 +66,8 @@ export default function AccountPage() {
     return (
         <div>
             <ToastContainer />
-            <section className={"flex"}>
-            <div className={"bg-gray-600 rounded-md p-5 items-center w-full max-w-60"}>
+            <section className={"md:flex"}>
+            <div className={"bg-gray-600 rounded-md p-5 items-center w-full max-w-64 mb-5 h-[400px]"}>
                 <div className={"w-full max-w-52 pb-5"}>
                     <h1 className={"text-sm md:text-lg font-bold text-white text-center"}>Changer votre avatar</h1>
                     <h1 className={"text-xs md:text-sm text-primary italic text-center pt-3"}>uniquement format .png</h1>
