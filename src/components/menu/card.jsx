@@ -64,7 +64,7 @@ export function CardUi({ productType }) {
                             <div>
                                 <p className={"text-3xl text-center text-white font-bold"}>{item.price}€</p>
                                 <Image src={config.URLAssets + "/images/product/" + item.id_product + "/image/image.png"} alt={"img"} width={1000} height={1000} className={"py-2"} />
-                                    <h1 className={"text-center font-bold text-white text-2xl px-2 w-full sm:text-lg md:text-sm lg:text-xs"}>{item.product_name} {item.id_product}</h1>
+                                    <h1 className={"text-center font-bold text-white text-2xl px-2 w-full sm:text-lg md:text-sm lg:text-xs"}>{item.product_name}</h1>
                                 <AlertDialog>
                                     <div className={"w-full max-w-16 mx-auto"}>
                                         <AlertDialogTrigger className={"w-full mx-auto bg-gray-800 text-white font-bold text-center my-2 rounded text-sm hover:bg-gray-900 py-1 px-1"}>+ d&apos;info</AlertDialogTrigger>
