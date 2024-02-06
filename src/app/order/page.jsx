@@ -13,7 +13,8 @@ export default function OrderStatePage(){
     const [valueBar, setValueBar] = useState(0);
     const [idOrder, setIdOrder] = useState('');
     const [orderDetail, setOrderDetail] = useState('');
-    const [stringState, setStringState] = useState('');
+    const [stringState, setStringState] = useState('En attente de chargement...');
+    const [BgColorState,setBgColorState] = useState('gray');
 
     useEffect(() => {
         const fetchStateOrder = async () => {
@@ -36,7 +37,8 @@ export default function OrderStatePage(){
                     setIdOrder(response.data[0].id_order);
                     console.log(idOrder);
 
-                    const { value, string } = SetterBar(response.data[0].order_state);
+                    const { value, string, BgColor } = SetterBar(response.data[0].order_state);
+                    setBgColorState(BgColor);
                     setValueBar(value);
                     setStringState(string);
                 }
@@ -73,29 +75,33 @@ export default function OrderStatePage(){
     const SetterBar = (stateOrder) => {
         let value;
         let string;
+        let BgColor;
 
         switch (stateOrder) {
             case 1:
                 string = 'En attente de prise en charge';
                 value = 25;
+                BgColor = 'gray';
                 break;
             case 2:
                 string = 'En cours de préparation';
                 value = 65;
+                BgColor = 'orange';
                 break;
             case 3:
                 string = 'Commande prête';
+                BgColor = 'green';
                 value = 100;
                 break;
             default:
                 string = 'None';
+                BgColor = 'gray';
                 value = 0;
                 break;
         }
 
-        return {value, string};
+        return {value, string, BgColor};
     };
-
 
     return(
         <div className={"rounded-lg"}>
@@ -106,7 +112,7 @@ export default function OrderStatePage(){
                 <div className={"lg:flex justify-between py-5 w-full items-start"}>
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-md h-40 mb-5"}>
                         <h1 className={"text-center font-bold text-white text-lg md:text-xl pb-3 pt-3"}>Etat de votre commande</h1>
-                        <p className={'text-center bg-gray-600 max-w-64 mx-auto py-2 rounded-md text-white font-bold my-2'}>{stringState}</p>
+                        <p className={`text-center bg-${BgColorState}-600 max-w-64 mx-auto py-2 rounded-md text-white font-bold my-2`}>{stringState}</p>
                         <Progress value={valueBar} className={"h-6 w-[80%] mx-auto rounded-md"}/>
                     </div>
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-lg"}>
