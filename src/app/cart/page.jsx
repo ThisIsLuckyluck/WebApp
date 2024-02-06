@@ -146,7 +146,7 @@ export default function CartPage() {
             try {
                 const data = localStorage.getItem("Cart");
 
-                if (data === '') {
+                if (data === '' || !data) {
                     router.push('/');
                 }
 
