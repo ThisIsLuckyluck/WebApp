@@ -2,12 +2,10 @@
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
+    NavigationMenuTrigger
 } from "@/components/ui/navigation-menu"
 
 import {navbarList} from "@/components/layout/navbarList";
