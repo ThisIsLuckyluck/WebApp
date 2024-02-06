@@ -26,11 +26,11 @@ export default function RecordOrderTable() {
 
     return (
         <div className={"w-full"}>
-            <section className={"bg-gray-600 w-full max-w-3xl h-[400px] mx-auto rounded-lg py-1"}>
+            <section className={"bg-gray-600 w-full max-w-3xl md:max-w-2xl lg:max-w-3xl h-[400px] mx-auto rounded-lg py-1"}>
                 <div className={"max-w-2xl mx-auto"}>
                     <p className={"my-5 text-center text-lg md:text-2xl text-white font-bold"}>Historique de vos commandes</p>
                 </div>
-                <ScrollArea className="h-72 max-w-2xl rounded mx-auto">
+                <ScrollArea className="h-72 max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl rounded mx-auto">
                     {orders.map(order => (
                         <div key={order.id_order} className={""}>
                             <section className={"max-w-2xl mx-auto flex justify-between"}>
