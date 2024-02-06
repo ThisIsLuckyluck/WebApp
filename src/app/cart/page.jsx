@@ -146,6 +146,10 @@ export default function CartPage() {
             try {
                 const data = localStorage.getItem("Cart");
 
+                if (data === '') {
+                    router.push('/');
+                }
+
                 // Split the data into an array using a delimiter (assuming it's a comma-separated string)
                 const cartIds = data ? data.split(",") : [];
 
