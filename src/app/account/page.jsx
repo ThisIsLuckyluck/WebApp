@@ -14,9 +14,19 @@ export default function AccountPage() {
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
-        setSelectedFile(file);
 
-        setPreviewImage(file ? URL.createObjectURL(file) : null);
+        let errorMessage = 'Merci de mettre une image en PNG uniquement 😀';
+
+        if (file.type !== "image/png") {
+            toast.error(errorMessage, {
+                theme: "dark"
+            });
+            event.target.value = "";
+        } else {
+            setSelectedFile(file);
+
+            setPreviewImage(file ? URL.createObjectURL(file) : null);
+        }
     };
 
     const handleFileUpload = () => {
@@ -78,7 +88,7 @@ export default function AccountPage() {
                             <AvatarFallback className={"text-center bg-gray-300 hover:bg-gray-200"}>Cliquez ici</AvatarFallback>
                         </Avatar>
                     )}
-                </label>
+                    </label>
                 </div>
                 <div className={"w-full max-w-36 mx-auto"}>
                     <button onClick={handleFileUpload}
