@@ -38,7 +38,6 @@ export default function Header() {
     }, [isAuthenticated, userId]);
 
     const srcUrl = () => {
-        console.log(userId);
         return config.URLAssets + "/images/client/" + userId + "/avatar/avatar.png";
     };
 

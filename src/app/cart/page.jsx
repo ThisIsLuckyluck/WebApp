@@ -9,6 +9,9 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator"
 import {useAuth} from "@/AuthContext";
 import {useRouter} from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function CartPage() {
     const [response, setResponse] = useState(null);
@@ -24,7 +27,7 @@ export default function CartPage() {
             const token = localStorage.getItem("authToken");
 
             const response = await axios.post(
-                `${config.URLApi}/order/create`,
+                `${config.URLApiLocal}/order/create`,
                 {
                     order_content: array,
                 },
@@ -38,15 +41,22 @@ export default function CartPage() {
             );
 
             if (response.status === 201) {
-                console.log("Order and Order Content created successfully.");
+                router.push('/order');
             } else {
-                console.log("Failed to create Order or Order Content.");
+                toast.error("Failed to create Order or Order Content.");
             }
         } catch (error) {
-            console.error("Error:", error.message);
-            console.log("Failed to create Order or Order Content.");
+            console.log(error.response.status);
+            if (error.response.status === 422) {
+                toast.error("Merci de renseignez au moins un article", {
+                    theme: "dark"
+                });
+            } else if (error.response.status === 400) {
+                toast.error("Problème avec votre commande, merci de réessayer plus tard.", {
+                    theme: "dark"
+                });
+            }
         }
-        router.push('/order');
     };
 
 
@@ -106,14 +116,12 @@ export default function CartPage() {
             // If mode is 'remove' and the productId is found in the 'Cart' array, remove it
             if (mode === 'remove' && indexOfProductId !== -1) {
                 cartArray.splice(indexOfProductId, 1);
-                console.log("cartArray", cartArray);
                 setArrayIdProduct(cartArray);
             }
 
             // If mode is 'add' and the productId is not found in the 'Cart' array, add it
             if (mode !== 'remove') {
                 cartArray.push(productId.toString());
-                console.log("cartArray", cartArray);
                 setArrayIdProduct(cartArray);
             }
 
@@ -138,8 +146,6 @@ export default function CartPage() {
             try {
                 const data = localStorage.getItem("Cart");
 
-                console.log("HEY", data);
-
                 // Split the data into an array using a delimiter (assuming it's a comma-separated string)
                 const cartIds = data ? data.split(",") : [];
 
@@ -156,38 +162,26 @@ export default function CartPage() {
                     }
                 }
 
-                console.log(idCountMap);
-
                 const uniqueIdsArray = Array.from(idCountMap.keys());
-
-                console.log(uniqueIdsArray);
 
                 const response = await axios.post(`${config.URLApi}/product/id`, {
                     id_products: uniqueIdsArray,
                 });
 
                 if (response.status === 200) {
-                    console.log(response.data);
-
                     // Update the quantity property for each item in the response array
                     const responseWithUpdatedQuantity = response.data.map((item) => {
-                        console.log("ITEM", item.id_product);
-                        console.log(idCountMap);
                         const quantityFromMap = idCountMap.get(`${item.id_product}`);
-                        console.log("HERE",quantityFromMap);
                         return {
                             ...item,
                             quantity: quantityFromMap,
                         };
                     });
-
-                    console.log(responseWithUpdatedQuantity);
-
                     setResponse(responseWithUpdatedQuantity);
 
                 }
             } catch (error) {
-                console.error(error);
+                toast.error(error);
             }
         };
 
@@ -202,9 +196,7 @@ export default function CartPage() {
         let totalCount = 0;
 
         for (let i = 0; i < response.length; i++) {
-            console.log(i);
             totalCount += response[i].price * response[i].quantity;
-            console.log(totalCount);
         }
 
         return parseFloat(totalCount.toFixed(2));
@@ -269,6 +261,7 @@ export default function CartPage() {
                     <button className={"w-full rounded-lg bg-primary p-2 py-2 my-5 font-bold"} onClick={() => createOrder(arrayIdProduct)}>Passez votre commande</button>
                 </div>
             </section>
+            <ToastContainer />
         </div>
     );
 };
