@@ -18,7 +18,7 @@ export default function Navbar() {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="bg-primary">Nos produits</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="bg-primary hover:bg-primary hover:text-white">Nos produits</NavigationMenuTrigger>
                     <NavigationMenuContent className="min-w-[300px] h-fit">
                         {navbarList.map((item, index) => (
                             <NavigationMenuLink
