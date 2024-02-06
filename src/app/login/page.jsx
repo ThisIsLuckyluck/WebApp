@@ -84,7 +84,7 @@ export default function LoginPage () {
                         <FormItem className="text-white">
                             <FormLabel className="text-lg">Username</FormLabel>
                             <FormControl>
-                                <Input className="border-2 rounded py-5 text-lg" placeholder="username" {...field} />
+                                <Input type="username" className="text-black border-2 rounded py-5 text-lg" placeholder="username" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -97,7 +97,7 @@ export default function LoginPage () {
                         <FormItem className="text-white">
                             <FormLabel className="text-lg">Mot de passe</FormLabel>
                             <FormControl>
-                                <Input className="border-2 rounded py-5 text-lg" placeholder="password" {...field} />
+                                <Input type="password" className="text-black border-2 rounded py-5 text-lg" placeholder="password" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
