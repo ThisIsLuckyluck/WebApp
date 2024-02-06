@@ -6,6 +6,7 @@ import config from "@/conf";
 
 import { Progress } from "@/components/ui/progress"
 import {decode} from "jsonwebtoken";
+import {ScrollArea} from "@/components/ui/scroll-area";
 
 
 export default function OrderStatePage(){
@@ -58,7 +59,7 @@ export default function OrderStatePage(){
                     'Authorization': `Bearer ${token}`
                 };
 
-                const response = await axios.post(`${config.URLApiLocal}/order/details`, data, { headers });
+                const response = await axios.post(`${config.URLApi}/order/details`, data, { headers });
 
                 if (response.status === 200) {
                     setOrderDetail(response.data);
@@ -107,7 +108,7 @@ export default function OrderStatePage(){
         <div className={"rounded-lg"}>
             <section className={"max-w-5xl mx-auto"}>
                 <div className={"max-w-sm mx-auto"}>
-                    <h1 className={"text-center text-lg md:text-3xl font-bold text-white"}>Votre dernière commande:</h1>
+                    <h1 className={"text-center text-lg md:text-3xl font-bold text-white"}>Votre dernière commande</h1>
                 </div>
                 <div className={"lg:flex justify-between py-5 w-full items-start"}>
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-md h-40 mb-5"}>
@@ -117,6 +118,7 @@ export default function OrderStatePage(){
                     </div>
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-lg"}>
                         <h1 className={"text-center font-bold text-white text-lg md:text-xl py-3"}>Detail de votre commande</h1>
+                        <ScrollArea className="h-[390px] max-w-[550px] rounded ">
                         {orderDetail && orderDetail.map((item) => (
                             <section key={item.id_product} className={"bg-gray-500 rounded-lg w-full max-w-sm md:max-w-md mx-auto my-3"}>
                                 <div className={"flex justify-between items-center"}>
@@ -125,6 +127,7 @@ export default function OrderStatePage(){
                                 </div>
                             </section>
                         ))}
+                        </ScrollArea>
                     </div>
                 </div>
             </section>
