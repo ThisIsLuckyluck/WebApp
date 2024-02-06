@@ -15,7 +15,7 @@ export default function RecordOrderTable() {
             "Authorization": `Bearer ${token}`
         };
 
-        axios.get(`${config.URLApiLocal}/order/id/user`, { headers: headers })
+        axios.get(`${config.URLApi}/order/id/user`, { headers: headers })
             .then(response => {
                 setOrders(response.data);
             })
