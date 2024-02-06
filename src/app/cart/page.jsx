@@ -190,7 +190,7 @@ export default function CartPage() {
         };
 
         fetchData();
-    }, []);
+    }, [router]);
 
     function TotalCount() {
         if (!response) {

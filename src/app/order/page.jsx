@@ -112,7 +112,7 @@ export default function OrderStatePage(){
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-lg"}>
                         <h1 className={"text-center font-bold text-white text-lg md:text-xl py-3"}>Detail de votre commande</h1>
                         {orderDetail && orderDetail.map((item) => (
-                            <section key={item.id_product} className={"bg-gray-500 rounded-lg w-full max-w-md mx-auto my-3"}>
+                            <section key={item.id_product} className={"bg-gray-500 rounded-lg w-full max-w-sm md:max-w-md mx-auto my-3"}>
                                 <div className={"flex justify-between items-center"}>
                                     <h1 className={"text-center font-bold text-white text-xl px-2 w-full sm:text-lg md:text-sm lg:text-sm py-3"}>{item.product_name} {item.id_product}</h1>
                                     <p className={"w-full text-primary font-bold text-center"}>Quantity</p>
