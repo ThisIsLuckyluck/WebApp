@@ -18,34 +18,25 @@ export default function OrderStatePage(){
     const [BgColorState,setBgColorState] = useState('gray');
 
     useEffect(() => {
-        const fetchStateOrder = async () => {
-            try {
-                const token = localStorage.getItem("authToken");
+        const webSocket = new WebSocket(`${config.URLWebSocket}`);
 
-                const { id } = decode(token);
+        webSocket.onopen = () => {
+            console.log('WebSocket connected');
+            const token = localStorage.getItem('authToken');
+            const message = JSON.stringify({ jwt: token });
+            webSocket.send(message);
+        };
 
-                const data = { id_client: id };
+        webSocket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log(data[0].order_state);
+            setStateOrder(data[0].order_state);
+            setIdOrder(data[0].id_order);
 
-                const headers = {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                };
-
-                const response = await axios.post(`${config.URLApi}/order/state`, data, { headers });
-
-                if (response.status === 200) {
-                    setStateOrder(response.data[0].order_state);
-                    setIdOrder(response.data[0].id_order);
-                    console.log(idOrder);
-
-                    const { value, string, BgColor } = SetterBar(response.data[0].order_state);
-                    setBgColorState(BgColor);
-                    setValueBar(value);
-                    setStringState(string);
-                }
-            } catch (error) {
-                console.error(error);
-            }
+            const { value, string, BgColor } = SetterBar(data[0].order_state);
+            setBgColorState(BgColor);
+            setValueBar(value);
+            setStringState(string);
         };
 
         const fetchDetailOrder = async () => {
@@ -69,7 +60,6 @@ export default function OrderStatePage(){
             }
         };
 
-        fetchStateOrder();
         fetchDetailOrder();
     }, [idOrder, stateOrder]);
 
