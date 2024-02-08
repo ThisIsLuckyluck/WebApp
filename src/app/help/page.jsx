@@ -85,7 +85,7 @@ export default function ContactPage() {
         <div className={"text-white py-10 pb-40"}>
             <h1 className={"font-bold text-center text-lg lg:text-4xl pb-5"}>
                 <p className={"w-full max-w-xs mx-auto rounded-lg border-4 p-0 m-0 mb-3"}>Besoin d&apos;aide ?</p>
-                <p>Nos <span className={"bg-primary rounded-sm p-2 py-0"}>collaborateur</span> sont là pour vous aider</p>
+                <p>Nos <span className={"bg-primary rounded-sm p-2 py-0"}>collaborateurs</span> sont là pour vous aider</p>
             </h1>
             <div className={"w-full"}>
                 <Tabs defaultValue="ticket" className="max-w-xl mx-auto my-5 h-[400px]">
