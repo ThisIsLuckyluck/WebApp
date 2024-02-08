@@ -48,7 +48,7 @@ export default function Header() {
 
     return (
         <div className={"h-20"}>
-        <div className={"mx-auto fixed top-5 left-0 right-0 z-50 py-12 bg-opacity-75 backdrop-blur-md"}>
+        <div className={"mx-auto fixed top-0 left-0 right-0 z-50 py-12 bg-opacity-75 backdrop-blur-md"}>
             <div className="max-w-6xl mx-auto fixed top-0 left-0 right-0 z-50 py-4 px-6 flex items-center justify-between">
                 <Link className="text-primary font-bold text-2xl flex items-center" href={'/'}>
                     <Image src={"/logo_blanc.png"} alt={""} width={"50"} height={"50"} />
