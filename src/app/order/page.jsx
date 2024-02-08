@@ -82,21 +82,21 @@ export default function OrderStatePage(){
             case 1:
                 string = 'En attente de prise en charge';
                 value = 25;
-                BgColor = 'gray';
+                BgColor = 'bg-gray-600';
                 break;
             case 2:
                 string = 'En cours de préparation';
                 value = 65;
-                BgColor = 'orange';
+                BgColor = 'bg-orange-600';
                 break;
             case 3:
                 string = 'Commande prête';
-                BgColor = 'green';
+                BgColor = 'bg-green-600';
                 value = 100;
                 break;
             default:
                 string = 'None';
-                BgColor = 'gray';
+                BgColor = 'bg-gray-600';
                 value = 0;
                 break;
         }
@@ -113,7 +113,7 @@ export default function OrderStatePage(){
                 <div className={"lg:flex justify-between py-5 w-full items-start"}>
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-md h-40 mb-5"}>
                         <h1 className={"text-center font-bold text-white text-lg md:text-xl pb-3 pt-3"}>Etat de votre commande</h1>
-                        <p className={`text-center bg-${BgColorState}-600 max-w-64 mx-auto py-2 rounded-md text-white font-bold my-2`}>{stringState}</p>
+                        <p className={`text-center ${BgColorState} max-w-64 mx-auto py-2 rounded-md text-white font-bold my-2`}>{stringState}</p>
                         <Progress value={valueBar} className={"h-6 w-[80%] mx-auto rounded-md"}/>
                     </div>
                     <div className={"bg-gray-400 rounded-lg w-full lg:max-w-lg"}>
