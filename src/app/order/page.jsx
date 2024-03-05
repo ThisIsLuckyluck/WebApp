@@ -94,6 +94,16 @@ export default function OrderStatePage(){
         return {value, string, BgColor};
     };
 
+    const total_price = () => {
+        let price = 0;
+
+        for (let item in orderDetail) {
+            price = price + orderDetail[item].price;
+        }
+
+        return price
+    }
+
     return(
         <div className={"rounded-lg"}>
             <section className={"max-w-5xl mx-auto"}>
@@ -111,13 +121,14 @@ export default function OrderStatePage(){
                         <ScrollArea className="h-[390px] max-w-[550px] rounded ">
                         {orderDetail && orderDetail.map((item) => (
                             <section key={item.id_product} className={"bg-gray-500 rounded-lg w-full max-w-sm md:max-w-md mx-auto my-3"}>
-                                <div className={"flex justify-between items-center"}>
+                                <div className={"flex justify-center items-center"}>
                                     <h1 className={"text-center font-bold text-white text-xl px-2 w-full sm:text-lg md:text-sm lg:text-sm py-3"}>{item.product_name} {item.id_product}</h1>
-                                    <p className={"w-full text-primary font-bold text-center"}>Quantity</p>
+                                    <p className={"w-full text-primary font-bold text-center"}>Quantité : {item.quantity}x</p>
                                 </div>
                             </section>
                         ))}
                         </ScrollArea>
+                        <p className={"text-center py-2 rounded-md bg-primary w-full max-w-48 font-bold text-xl text-white mx-auto my-2"}>Prix total:  {total_price()}$</p>
                     </div>
                 </div>
             </section>
