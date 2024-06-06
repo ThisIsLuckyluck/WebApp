@@ -14,3 +14,4 @@ Finally do this to see the app in your own local system :
 ```bash
 npm run start
 ``` 
+Please if you have some issue for running the app feel free to create an issue.
