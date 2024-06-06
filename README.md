@@ -3,20 +3,17 @@ To deploy this project first git clone this project :
 git clone https://github.com/FAST-SUSHI-NEXTECH/WebApp.git 
 ```
 
-Once you have cloned the project go to your folder directory and do the following command :
+Once you have cloned the project go to your folder directory and do the following command for install/update package :
 
 ```bash
 npm i
 ``` 
-for install/update package.
-
+This command make a build of the app
 ```bash
 npm run build
 ``` 
-for building the app.
 
-Finally do 
+Finally do this to see the app in your own local system 
 ```bash
 npm run start
 ``` 
-for see in your local system the App !
