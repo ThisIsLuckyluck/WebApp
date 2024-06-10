@@ -20,7 +20,7 @@ To display Images go to the path :
 ```bash
 Path\to\the\WebApp\assets\assets
 ```
-and run 
+and run :
 ```bash
 python -m http.server 34343
 ```
