@@ -1,9 +1,9 @@
 const config = {
-    secretKey: "10.x.x.x",
-    URLApi: "http://10.x.x.x",
-    URLApiLocal: "http://10.x.x.x",
-    URLAssets: "http://10.x.x.x",
-    URLWebSocket: "ws://10.x.x.x"
+    secretKey: "",
+    URLApi: "http://localhost:3000",
+    URLApiLocal: "http://localhost:3000",
+    URLAssets: "http://localhost:34343",
+    URLWebSocket: "ws://localhost:8765"
 };
 
 export default config;

@@ -15,3 +15,12 @@ Finally do this to see the app in your own local system :
 npm run start
 ``` 
 Please if you have some issue for running the app feel free to create an issue.
+
+To display Images go to the path : 
+```bash
+Path\to\the\WebApp\assets\assets
+```
+and run 
+```bash
+python -m http.server 34343
+```
